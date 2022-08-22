@@ -3,9 +3,8 @@
   connection: local
 
   roles:
-    # - role: zypper
-    #   tags: zypper
-    # - role: ssh
+    - role: zypper
+    - role: ssh
     - role: zsh
 
   vars_prompt:
