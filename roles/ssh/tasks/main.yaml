@@ -21,12 +21,6 @@
 
 ## TODO possibly check key is on github?
 - block:
-  # - name: Set authorized key taken from file
-  #   authorized_key:
-  #     user: ant
-  #     state: present
-  #     key: "{{ lookup('file', '~/.ssh/id_ed25519_github.pub') }}" ## I dont think we want this
-
   - name: Read the ssh public key
     ansible.builtin.slurp:
       src: ~/.ssh/id_ed25519_github.pub

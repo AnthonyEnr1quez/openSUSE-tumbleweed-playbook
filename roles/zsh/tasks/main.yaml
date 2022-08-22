@@ -1,3 +1,8 @@
+- name: Check zsh is installed
+  ansible.builtin.package:
+    name: zsh
+    state: present
+
 - name: Set ZSH as the default shell
   become: yes
   user:
@@ -5,7 +10,7 @@
     shell: /usr/bin/zsh
 
 - name: Check if chezmoi is installed
-  stat: path=/home/ant/bin/chezmoi
+  stat: path=$HOME/.local/bin
   register: chezmoi_check
 
 - name: download chezmoi and dotfiles
