@@ -1,4 +1,4 @@
-sudo zypper up
+sudo zypper dup
 sudo zypper in git make
 
 
