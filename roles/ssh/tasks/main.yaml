@@ -1,0 +1,32 @@
+---
+- block: 
+  - name: generate SSH key id_ed25519_github
+    openssh_keypair:
+      path: "~/.ssh/id_ed25519_github"
+      type: ed25519
+      comment: 32233059+AnthonyEnr1quez@users.noreply.github.com
+      state: present
+      force: no
+    register: key_generated
+
+## TODO possibly check key is on github?
+- block:
+  - name: Read the ssh public key
+    ansible.builtin.slurp:
+      src: ~/.ssh/id_ed25519_github.pub
+    register: ssh_public_key
+
+  - name: Add ssh key
+    ansible.builtin.uri:
+      url: https://api.github.com/user/keys
+      method: POST
+      headers:
+        Accept: "application/vnd.github+json"
+        Authorization: "token {{ github_token }}"
+      body_format: json
+      body:
+        title: "test ssh key w/ ansible" # TODO make generic
+        key: "{{ ssh_public_key['content'] | b64decode }}"
+      status_code: 201
+  
+  when: "key_generated is changed"

@@ -1,0 +1,14 @@
+- name: set variable file
+  include_vars: "vars/wsl.yaml"
+
+- name: Update all packages
+  become: yes
+  zypper:
+    name: '*'
+    state: latest
+
+- name: Install packages
+  become: yes
+  zypper:
+    name: "{{packages}}"
+    state: present

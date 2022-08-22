@@ -1,0 +1,50 @@
+sudo zypper up
+sudo zypper in git make
+
+
+### debug
+- name: Print a message
+ansible.builtin.debug:
+    msg: 'Logging in as {{ ssh_public_key }}'
+
+
+### from other distro
+# first install wsl
+after is powershell admin terminal
+wsl --update
+
+#install tumbleweed from ms store
+
+# update packages
+sudo zypper up
+
+# install zsh
+
+# install git
+sudo zypper in git
+
+# set default shell
+chsh -s /usr/bin/zsh
+
+# setup github ssh keys
+
+# start zsh
+
+# install antidote
+https://getantidote.github.io/install
+git clone --depth=1 git@github.com:mattmc3/antidote.git ${ZDOTDIR:-~}/.antidote
+
+# clone dotfiles
+https://www.chezmoi.io/reference/commands/init/
+
+# apply dotfiles
+
+# refresh shell
+exec zsh
+
+# turn off kube-ps1
+kubeoff -g
+
+# install go
+https://www.phillipsj.net/posts/installing-go-on-opensuse/
+sudo zypper in go1.19
