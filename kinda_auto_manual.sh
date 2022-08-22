@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# run on machine bash <(curl -s https://raw.githubusercontent.com/AnthonyEnr1quez/temp_wsl_tumbleweed_ansible/main/kinda_auto_manual.sh)
+
 sudo zypper dup
 sudo zypper in git make
 
