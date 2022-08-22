@@ -9,5 +9,5 @@
   register: chezmoi_check
 
 - name: download chezmoi and dotfiles
-  shell: sh -c "$(curl -fsLS https://chezmoi.io/get)" -- -b $HOME/.local/bin init --ssh --apply
+  shell: sh -c "$(curl -fsLS https://chezmoi.io/get)" -- -b $HOME/.local/bin init --ssh --apply AnthonyEnr1quez
   when: not chezmoi_check.stat.exists

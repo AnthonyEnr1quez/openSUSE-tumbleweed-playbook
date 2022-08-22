@@ -1,5 +1,10 @@
 ---
 - block: 
+  - name: Creates .ssh directory
+    file:
+      path: /home/ant/.ssh
+      state: directory
+      
   - name: generate SSH key id_ed25519_github
     openssh_keypair:
       path: "~/.ssh/id_ed25519_github"
@@ -25,7 +30,7 @@
         Authorization: "token {{ github_token }}"
       body_format: json
       body:
-        title: "test ssh key w/ ansible" # TODO make generic
+        title: "mothership wsl tumbleweed" # TODO make generic
         key: "{{ ssh_public_key['content'] | b64decode }}"
       status_code: 201
   
