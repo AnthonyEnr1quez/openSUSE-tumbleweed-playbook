@@ -1,6 +1,20 @@
 - name: set variable file
   include_vars: "vars/wsl.yaml"
 
+- name: Add repos
+  become: yes
+  zypper_repository:
+    name: google-k8s
+    repo: 'https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64'
+    auto_import_keys: yes
+    state: present
+
+- name: Refresh all repos
+  become: yes
+  zypper_repository:
+    repo: '*'
+    runrefresh: yes
+
 - name: Update all packages
   become: yes
   zypper:

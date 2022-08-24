@@ -1,5 +1,11 @@
 ---
 packages:
   - ansible
+  - bat
+  - exa
   - git
+  - git-delta
+  - kubectl
+  - kubectx
+  - kubens
   - zsh
