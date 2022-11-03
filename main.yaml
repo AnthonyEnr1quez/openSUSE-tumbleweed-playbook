@@ -1,4 +1,4 @@
-- name: wsl tumbleweed setup
+- name: openSUSE-tumbleweed-playbook
   hosts: localhost
   connection: local
 
